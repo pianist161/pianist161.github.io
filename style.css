@@ -48,6 +48,11 @@ header {
   align-items: center;
   padding: 10px;
 }
+main {
+  background-image: url("./pexels-designecologist-1779487.jpg");
+  height: 100vh;
+  background-size: cover;
+}
 .contact-me {
   background-color: blue;
   color: white;
@@ -56,4 +61,11 @@ header {
 }
 .git {
   color: white;
+}
+h2 {
+  color: white;
+}
+.contact {
+  margin-top: 20px;
+  margin: 10px;
 }
