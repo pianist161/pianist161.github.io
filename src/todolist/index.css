@@ -8,10 +8,12 @@
   align-items: center;
 }
 input {
-  padding: 20px;
   margin-right: 20px;
   width: 60%;
+  padding: 10px;
 }
 button {
+  background-color: rgba(0, 0, 255, 0.419);
   padding: 10px;
+  color: black;
 }

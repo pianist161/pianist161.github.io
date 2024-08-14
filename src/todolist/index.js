@@ -10,7 +10,9 @@ button.addEventListener("click", () => {
   input.value = "";
 });
 const addTask = (task) => {
-  tasks.push(task);
+  if (task !== "") {
+    tasks.push(task);
+  }
 };
 const displayTasks = (tasks) => {
   mainDiv.textContent = "";
