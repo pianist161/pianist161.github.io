@@ -1,7 +1,7 @@
 const input = document.querySelector("input");
 const button = document.querySelector("button");
 const mainDiv = document.querySelector(".mainDiv");
-const tasks = [];
+const tasks = [1, 2, 3];
 input.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -35,4 +35,9 @@ const displayTasks = (tasks) => {
 const removeTask = (taskid) => {
   tasks.splice(taskid, 1);
   displayTasks(tasks);
+};
+displayTasks(tasks);
+const newObj = {
+  id: tasks.length + 1,
+  task: input.value,
 };
