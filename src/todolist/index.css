@@ -1,0 +1,17 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  align-items: center;
+}
+input {
+  padding: 20px;
+  margin-right: 20px;
+  width: 60%;
+}
+button {
+  padding: 10px;
+}
