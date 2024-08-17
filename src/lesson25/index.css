@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.user-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+.user-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.user-card h2 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #007bff;
+}
+
+.user-card p {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+.user-card .email,
+.user-card .cell {
+  color: #555;
+  font-size: 0.9em;
+}
+
+.user-card .gender {
+  font-style: italic;
+  color: #999;
+}
+.users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
