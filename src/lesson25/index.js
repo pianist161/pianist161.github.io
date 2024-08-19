@@ -2,6 +2,8 @@ const usersDiv = document.querySelector(".users");
 const button = document.querySelector("button");
 const input = document.querySelector("input");
 const select = document.querySelector("select");
+const sortobj = document.querySelector("#sortobj");
+
 let usersAll = [];
 
 // Функция для получения случайных пользователей
@@ -27,7 +29,27 @@ button.addEventListener("click", () => {
   usersDiv.innerHTML = ""; // Изменение: очистка контейнера перед рендерингом
   render(input.value);
 });
-
+sortobj.addEventListener("change", (event) => {
+  usersDiv.innerHTML = "";
+  if (event.target.value === "none") {
+    // Если выбрано "none", отображаем всех пользователей без сортировки
+    usersAll.forEach((item) => newRenderOneUser(item));
+  } else {
+    // В противном случае, сортируем и отображаем пользователей
+    sorterUsers(event.target.value, [...usersAll]).forEach((item) =>
+      newRenderOneUser(item)
+    );
+  }
+});
+const sorterUsers = (order, users) => {
+  return users.sort((a, b) => {
+    if (order === "a-z") {
+      return a.name.first.localeCompare(b.name.first);
+    } else if (order == "z-a") {
+      return b.name.first.localeCompare(a.name.first);
+    }
+  });
+};
 // Функция для рендеринга пользователей
 const render = (userCount) => {
   renderUsers(userCount).then((users) => {
