@@ -1,58 +1,37 @@
-// const getItemStore = (item) => {
-//   return fetch(`https://fakestoreapi.com/products/${item}`, { method: "GET" })
-//     .then((response) => response.json())
-//     .then((response) => console.log(response))
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
-// getItemStore(2);
-// const getRandomDog = () => {
-//   return fetch("https://dog.ceo/api/breeds/image/random")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
-//       return data.message;
-//     })
-//     .catch((error) => console.log(error));
-// };
-// const button = document.querySelector("button");
-// const img = document.querySelector("img");
-// button.addEventListener("click", () => {
-//   getRandomDog().then((imageUrl) => {
-//     img.src = imageUrl;
-//   });
-// });
 const usersDiv = document.querySelector(".users");
-const renderUsers = (countUsers) => {
-  return fetch(`https://randomuser.me/api/?results=${countUsers}`).then(
-    (response) =>
-      response
-        .json()
-        .then((data) => {
-          return data.results;
-        })
-        .catch((error) => console.log(error))
-  );
-};
 const button = document.querySelector("button");
 const input = document.querySelector("input");
 const select = document.querySelector("select");
 let usersAll = [];
+
+// Функция для получения случайных пользователей
+const renderUsers = (countUsers) => {
+  return fetch(`https://randomuser.me/api/?results=${countUsers}`)
+    .then((response) => response.json())
+    .then((data) => {
+      return data.results; // Изменения: упрощен код, убраны лишние then и catch
+    })
+    .catch((error) => console.log(error));
+};
+
+// Обработчик для фильтрации пользователей
 select.addEventListener("change", (event) => {
-  usersDiv.innerHTML = "";
-  filerUser(usersAll, event.target.value).forEach((item) => {
-    newRenderOneUser(item);
+  usersDiv.innerHTML = ""; // Изменение: очистка контейнера перед рендерингом
+  filterUser(usersAll, event.target.value).forEach((item) => {
+    newRenderOneUser(item); // Исправлено название функции filterUser
   });
 });
 
+// Обработчик для кнопки "Click"
 button.addEventListener("click", () => {
-  usersDiv.innerHTML = "";
+  usersDiv.innerHTML = ""; // Изменение: очистка контейнера перед рендерингом
   render(input.value);
 });
-const render = (user) => {
-  renderUsers(user).then((users) => {
-    usersAll = users;
+
+// Функция для рендеринга пользователей
+const render = (userCount) => {
+  renderUsers(userCount).then((users) => {
+    usersAll = users; // Изменение: сохраняем всех пользователей
 
     users.forEach((user) => {
       newRenderOneUser(user);
@@ -60,6 +39,7 @@ const render = (user) => {
   });
 };
 
+// Функция для создания и отображения карточки пользователя
 const newRenderOneUser = ({
   email,
   gender,
@@ -103,16 +83,13 @@ const newRenderOneUser = ({
   // Добавляем карточку пользователя в контейнер
   usersDiv.appendChild(userCard);
 };
-const filerUser = (user, gender) => {
-  if (gender == "all") {
-    return user;
+
+// Функция фильтрации пользователей по полу
+const filterUser = (users, gender) => {
+  // Исправлено название функции на filterUser
+  if (gender === "all") {
+    // Изменение: проверка с использованием строгого сравнения
+    return users; // Возвращаем всех пользователей, если выбран "all"
   }
-  return user.filter((element) => {
-    return element.gender === gender;
-  });
+  return users.filter((element) => element.gender === gender); // Упрощенная стрелочная функция
 };
-// renderUsers().then((users) => {
-//   users.forEach((user) => {
-//     console.log(user);
-//   });
-// });
