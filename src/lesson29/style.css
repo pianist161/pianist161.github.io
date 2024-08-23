@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 20px;
+}
+.product {
+  width: 300px;
+}
+.products {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.imageDiv {
+  width: 100%;
+}
+/* Общие стили для страницы */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Контейнер для всех продуктов */
+.productsAll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Стили для каждого продукта */
+.product {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для изображения продукта */
+.product img.imageDiv {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 15px;
+}
+
+/* Стили для заголовка продукта */
+.product h3.title {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #007bff;
+}
+
+/* Стили для описания продукта */
+.product .description {
+  font-size: 1em;
+  color: #6c757d;
+  margin-bottom: 10px;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Стили для цены продукта */
+.product div.price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Контейнер для кнопок */
+.product .btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Стили для кнопок */
+.product .btnEdit,
+.product .btnDelete {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 48%;
+  transition: background-color 0.3s ease;
+}
+
+.product .btnEdit {
+  background-color: #28a745;
+  color: white;
+}
+
+.product .btnEdit:hover {
+  background-color: #218838;
+}
+
+.product .btnDelete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.product .btnDelete:hover {
+  background-color: #c82333;
+}
