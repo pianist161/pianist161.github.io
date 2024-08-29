@@ -23,26 +23,30 @@ const addTovar = async (product) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(product), // Преобразуем объект в JSON-строку
+      body: JSON.stringify(product),
     });
-    const data = await response.json();
-    console.log(data);
+    await response.json();
+    getData(); // Перерендер после добавления продукта
   } catch (error) {
     console.log(error);
   }
 };
+
 const getData = async () => {
-  const response = await fetch(url);
-  const data = await response.json();
-  render(data);
-  console.log(data);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    render(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
-getData();
+
 const render = (products) => {
-  productsAll.innerHTML = ""; // Очищаем контейнер один раз перед рендерингом
+  productsAll.innerHTML = ""; // Очищаем контейнер перед рендерингом
 
   products.forEach(({ title, description, price, imageUrl, id }) => {
-    if (title !== "" && description !== "" && price !== "" && imageUrl !== "") {
+    if (title && description && price && imageUrl) {
       const product = `
         <div class="product">
           <img src="${imageUrl}" alt="" class="imageDiv" />
@@ -50,63 +54,71 @@ const render = (products) => {
           <div class="description">${description}</div>
           <div>${price}</div>
           <div class="btns">
-            <button data-index-number=${id} class="btnEdit" >Edit</button>
-            <button 
-            data-index-number=${id} 
-            class="btnDelete">Delete</button>
+            <button data-index-number=${id} class="btnEdit">Edit</button>
+            <button data-index-number=${id} class="btnDelete">Delete</button>
           </div>
         </div>
       `;
       productsAll.insertAdjacentHTML("beforeend", product);
     }
   });
-  const allEditBtns = document.querySelectorAll(".btnEdit");
-  allEditBtns.forEach((btn) => {
+
+  // Обработчики кнопок редактирования
+  document.querySelectorAll(".btnEdit").forEach((btn) => {
     btn.addEventListener("click", (event) => {
+      const productId = event.target.getAttribute("data-index-number");
       const changeProduct = {
         imageUrl: imgUrl.value,
         title: title.value,
         description: description.value,
         price: price.value,
       };
-
-      const productId = event.target.getAttribute("data-index-number");
       editProduct(changeProduct, productId);
-      console.log(productId);
     });
   });
-  const allDeleteBtns = document.querySelectorAll(".btnDelete");
-  allDeleteBtns.forEach((btn) => {
+
+  // Обработчики кнопок удаления
+  document.querySelectorAll(".btnDelete").forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const productId = event.target.getAttribute("data-index-number");
       deleteProduct(productId);
-      console.log(productId);
     });
   });
 };
+
 const editProduct = async (product, id) => {
   try {
-    const response = fetch(url + "/" + id, {
+    const response = await fetch(`${url}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(product),
     });
-    const data = response.json();
-    render(data);
+    await response.json();
+    getData(); // Перерендер после редактирования продукта
   } catch (error) {
     console.log(error);
   }
 };
+
 const deleteProduct = async (id) => {
   try {
-    const response = fetch(url + "/" + id, {
+    const response = await fetch(`${url}/${id}`, {
       method: "DELETE",
     });
-    const data = response.json();
-    render(data);
+
+    if (response.ok) {
+      console.log("Product deleted successfully");
+      getData(); // Перерендер после удаления продукта
+    } else {
+      console.error(
+        `Failed to delete product with ID ${id}: ${response.status}`
+      );
+    }
   } catch (error) {
     console.log(error);
   }
 };
+
+getData(); // Начальная загрузка данных
