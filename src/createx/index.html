@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="nav-bar">
+			<div class="top-bar">
+				<label for="">Available 24/7 at (405)555-0128</label>
+				<div class="memu-secondary">
+					<ul>
+						<li>Delivery & returns</li>
+						<li>Track order</li>
+						<li>Blog</li>
+						<li>Contacts</li>
+					</ul>
+				</div>
+
+				<div class="account">
+					<i class="fa-regular fa-user"></i>
+					<div>Log in / Register</div>
+				</div>
+			</div>
+			<div class="button-bar">
+				<div class="logo">MaxStore</div>
+				<div class="menu">
+					<ul>
+						<li>Women</li>
+						<li>Men</li>
+						<li>Girls</li>
+						<li>Boys</li>
+						<li>Sale</li>
+					</ul>
+				</div>
+				<input type="search" placeholder="Search for products" />
+				<div class="toolbar">
+					<div class="wishlist">
+						<a href=""
+							><i class="fa-regular fa-heart"></i>
+							<span class="wish-count">2</span></a
+						>
+					</div>
+					|
+
+					<div class="cart">
+						<a href="">
+							<i class="fa-solid fa-cart-shopping"></i>
+							<span class="cart-count">2</span></a
+						>
+					</div>
+					<div class="addproduct">
+						<i class="fa-solid fa-plus"></i>
+						<span>Add</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="special-offers">
+			<div class="banner-text">
+				<a href=""><bold> Up to 70% Off</bold>. Shop our latest sale styles</a>
+			</div>
+		</div>
+		<div class="bread-crumb">
+			<div class="bread">
+				<i class="fa-solid fa-house"></i>
+				<img src="./img/Right-chevron.svg" alt="" />
+			</div>
+			<div class="active-filters"></div>
+		</div>
+		<div class="tools-bar">
+			<div class="tools">
+				<div class="show-filters-toolbar" id="show-filters">
+					<i class="fa-solid fa-sliders"></i> Show filters
+				</div>
+				<div class="sorting-toolbar">
+					<label for="" class="label">Sort by</label>
+					<select name="" id="">
+						<option value="">popularity</option>
+					</select>
+				</div>
+				<div class="pager-toolbar">
+					<label for="" class="label">Show</label>
+					<input type="number" placeholder="1" />
+					<div class="labelperpage">product per page</div>
+				</div>
+				<!-- <div class="pagination">
+
+      </div> -->
+			</div>
+		</div>
+
+		<div class="product-grid"></div>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close"><img src="./img/icons/Cross.svg" alt="" /></span>
+				<div class="modelflex">
+					<h2 id="modalTitle">Add Product</h2>
+					<input type="text" id="productTitle" placeholder="Title" />
+					<input
+						type="text"
+						id="productDescription"
+						placeholder="Description"
+					/>
+					<input type="number" id="productPrice" placeholder="Price" />
+					<input type="text" id="productImgUrl" placeholder="Image URL" />
+					<button id="saveProductBtn" class="btn">Save</button>
+				</div>
+			</div>
+		</div>
+		<script
+			src="https://kit.fontawesome.com/f2b3e3ea7c.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
+
+<!-- https://i.postimg.cc/fydmWzdr/12.png
+https://i.postimg.cc/SxkCqpxg/i88mage.png
+https://i.postimg.cc/CLjkWKSZ/im3123age.png
+https://i.postimg.cc/3JM2SG55/im77age.png
+https://i.postimg.cc/mrr9zNMM/imag123e.png
+https://i.postimg.cc/T30m3Hyf/imag66e.png
+https://i.postimg.cc/2ynLRHRp/image31212.png
+https://i.postimg.cc/bJ7SB75H/image3122.png
+https://i.postimg.cc/kXdtFdK7/image312222.png
+https://i.postimg.cc/XN5CCvZ2/image31233.png
+https://i.postimg.cc/N0PH197n/image44.png
+https://i.postimg.cc/mDzFVLmg/image55.png
+-->
