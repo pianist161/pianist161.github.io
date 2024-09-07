@@ -6,11 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  max-width: 1920px;
-  min-width: 1230px;
-}
-
 .nav-bar {
   height: 128px;
 }
@@ -23,8 +18,8 @@ body {
   height: 44px;
   align-items: center;
   font-size: 14px;
-  padding-left: 345px;
-  padding-right: 345px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .nav-bar .top-bar ul {
   display: flex;
@@ -42,6 +37,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 345px;
+  padding: 2% 10%;
 }
 .nav-bar .button-bar .logo {
   font-size: 22px;
@@ -109,8 +105,8 @@ body {
   background-color: #f4f5f6;
   height: 53px;
   display: flex;
-  padding-left: 345px;
-  padding-right: 345px;
+  padding-left: 10%;
+  padding-right: 10%;
   justify-content: space-between;
   align-items: center;
 }
@@ -120,12 +116,11 @@ body {
 }
 
 .tools-bar {
-  padding-left: 345px;
-  padding-right: 345px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .tools {
-  width: 1230px;
   height: 44px;
   margin-top: 32px;
   margin-bottom: 32px;
@@ -255,20 +250,20 @@ body {
 }
 
 .product-grid {
-  min-width: 1230px;
-  margin-left: 345px;
-  margin-right: 345px;
+  padding-left: 10%;
+  padding-right: 10%;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 10px;
 }
 .product-grid .product {
-  width: 285px;
   height: 413px;
   border-radius: 4px;
+  background-size: contain;
+  background-position: center;
+  width: 24%;
 }
 .product-grid .product .product-img-rating {
-  background-image: url("https://i.postimg.cc/fydmWzdr/12.png");
   background-repeat: no-repeat;
   padding: 16px;
   width: 100%; /* Установите ширину контейнера */
