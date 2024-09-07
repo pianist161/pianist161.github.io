@@ -153,10 +153,20 @@ async function getVideoMovie(movieId) {
 const renderVideoMovie = (videos) => {
   const trailer = videos.find((video) => video.type === "Trailer"); // Ищем трейлер
   if (trailer) {
+    // Проверяем, есть ли уже трейлер, и если есть, удаляем его
+    const existingVideo = document.querySelector(".video");
+    if (existingVideo) {
+      existingVideo.remove(); // Удаляем предыдущий трейлер, если он уже был добавлен
+    }
+
+    const element = document.createElement("div");
     const video = `
         <div class="video">
-            <iframe width="1080px" height="600px" src="https://www.youtube.com/embed/${trailer.key}" allowfullscreen></iframe></div>`;
-    main.insertAdjacentHTML("beforeend", video);
+            <iframe width="1080px" height="600px" src="https://www.youtube.com/embed/${trailer.key}" allowfullscreen></iframe>
+        </div>`;
+
+    element.insertAdjacentHTML("beforeend", video);
+    main.append(element); // Предполагается, что main уже определен
   } else {
     console.log("Трейлер не найден");
   }
@@ -205,7 +215,7 @@ searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const searchQuery = searchInput.value.trim();
   if (searchQuery) {
-    location.href = `index.html?search=${searchQuery}&page=1`;
+    location.href = `index.html?search=${searchQuery}`;
   }
 });
 
