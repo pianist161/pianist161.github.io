@@ -153,10 +153,10 @@ async function getVideoMovie(movieId) {
 const renderVideoMovie = (videos) => {
   const trailer = videos.find((video) => video.type === "Trailer"); // Ищем трейлер
   if (trailer) {
-    // Проверяем, есть ли уже трейлер, и если есть, удаляем его
+    // Проверяем, существует ли контейнер для трейлера
     const existingVideo = document.querySelector(".video");
     if (existingVideo) {
-      existingVideo.remove(); // Удаляем предыдущий трейлер, если он уже был добавлен
+      existingVideo.remove(); // Удаляем предыдущий трейлер
     }
 
     const element = document.createElement("div");
@@ -166,7 +166,7 @@ const renderVideoMovie = (videos) => {
         </div>`;
 
     element.insertAdjacentHTML("beforeend", video);
-    main.append(element); // Предполагается, что main уже определен
+    main.appendChild(element); // Предполагается, что main уже определен
   } else {
     console.log("Трейлер не найден");
   }
